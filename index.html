@@ -1,0 +1,344 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: burlywood;
+            font-size:55px;
+            font-family: sans-serif;
+        }
+        #start{
+            height:80vh;
+            width: 1fr;
+            background-color: brown;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #game{
+            display: grid;
+            grid-template-columns: 100px 100px 100px;
+            grid-template-rows: 100px 100px 100px;
+            cursor: pointer;
+        }
+        .oneBox{
+           background-color:deeppink;
+           border-bottom: 2px solid black;
+           border-right: 2px solid black;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+        }
+        .oneBox:hover{
+            background-color: blanchedalmond;
+        }
+        .twoBox{
+            background-color: chocolate;
+            border-bottom: 2px solid black;
+           border-right: 2px solid black;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+        }
+        .twoBox:hover{
+            background-color: blanchedalmond;
+        }
+        .threeBox{
+            background-color:orange;
+            border-bottom: 2px solid black;
+            display: flex;
+           justify-content: center;
+           align-items: center;
+        }
+        .threeBox:hover{
+            background-color: blanchedalmond;
+        }
+        .fourBox{
+            background-color: cornflowerblue;
+            border-bottom: 2px solid black;
+           border-right: 2px solid black;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+        }
+        .fourBox:hover{
+            background-color: blanchedalmond;
+        }
+        .fiveBox{
+            background-color: cyan;
+            border-bottom: 2px solid black;
+           border-right: 2px solid black;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+        }
+        .fiveBox:hover{
+            background-color: blanchedalmond;
+        }
+        .sixBox{
+            background-color: darkgreen;
+            border-bottom: 2px solid black;
+            display: flex;
+           justify-content: center;
+           align-items: center;
+          
+        }
+        .sixBox:hover{
+            background-color: blanchedalmond;
+        }
+        .sevenBox{
+            background-color: darkorchid;
+           border-right: 2px solid black;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+        }
+        .sevenBox:hover{
+            background-color: blanchedalmond;
+        }
+        .eightBox{
+            background-color: darkslateblue;
+           border-right: 2px solid black;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+        }
+        .eightBox:hover{
+            background-color: blanchedalmond;
+        }
+        .nineBox{
+            background-color:gold;
+            display: flex;
+           justify-content: center;
+           align-items: center;
+        }
+        .nineBox:hover{
+            background-color: blanchedalmond;
+        }
+        #win{
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: chartreuse;
+            margin-bottom: 20px;
+            color: darkblue;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="win">- WELCOME -</div> 
+<div id="start">
+        <div id="game">
+        <div id="one" class="oneBox"></div>
+        <div id="two" class="twoBox"></div>
+        <div id="three" class="threeBox"></div>
+        <div id="four" class="fourBox"></div>
+        <div id="five" class="fiveBox"></div>
+        <div id="six" class="sixBox"></div>
+        <div id="seven" class="sevenBox"></div>
+        <div id="eight" class="eightBox"></div>
+        <div id="nine" class="nineBox"></div>
+    </div>
+</div>
+    <script>
+
+       bOne=document.getElementById("one");
+       bTwo=document.getElementById("two");
+       bThree=document.getElementById("three");
+       bFour=document.getElementById("four");
+       bFive=document.getElementById("five");
+       bSix=document.getElementById("six");
+       bSeven=document.getElementById("seven");
+       bEight=document.getElementById("eight");
+       bNine=document.getElementById("nine");
+
+        function draw(){
+            if(bOne.innerHTML==="" || bTwo.innerHTML==="" || bThree.innerHTML==="" || bFour.innerHTML===""
+            || bFive.innerHTML==="" || bSix.innerHTML===""|| bSeven.innerHTML==="" || bEight.innerHTML==="" 
+            || bNine.innerHTML==="")
+               this.flag=true;
+            else{
+                this.flag=false;
+                document.getElementById("win").innerHTML="DRAW TRY AGAIN";
+            }
+
+        }
+    
+        this.prsnt="X";
+
+        bOne.addEventListener("click",()=>{
+            
+            if(bOne.innerHTML!=""){
+                return;
+            }
+            if(this.flag){
+                this.prsnt= (this.prsnt==="X") ? "O":"X";
+                document.getElementById("one").innerHTML=this.prsnt;
+                if(bTwo.innerHTML===this.prsnt && bThree.innerHTML===this.prsnt){
+                    document.getElementById("win").innerHTML="WINNER IS--"+this.prsnt +"--PLEASE START AGAIN!!!";
+                }
+                else if(bFive.innerHTML===this.prsnt && bNine.innerHTML===this.prsnt){
+                    document.getElementById("win").innerHTML="WINNER IS --"+this.prsnt +"--PLEASE START AGAIN!!!";
+                }
+                else if(bFour.innerHTML===this.prsnt && bSeven.innerHTML===this.prsnt){
+                    document.getElementById("win").innerHTML="WINNER IS --"+this.prsnt +"--PLEASE START AGAIN!!!";
+                }
+            }
+            draw();
+        })
+
+        bTwo.addEventListener("click",()=>{
+            if(bTwo.innerHTML!=""){
+                return;
+            }
+            if(this.flag){
+            this.prsnt= (this.prsnt==="X") ? "O":"X";
+            document.getElementById("two").innerHTML=this.prsnt;
+            if(bOne.innerHTML===this.prsnt && bThree.innerHTML===this.prsnt){
+                document.getElementById("win").innerHTML="WINNER IS --"+this.prsnt +"--PLEASE START AGAIN!!!";
+            }
+            else if(bFive.innerHTML===this.prsnt && bEight.innerHTML===this.prsnt){
+                document.getElementById("win").innerHTML="WINNER IS --"+this.prsnt +"--PLEASE START AGAIN!!!";
+             }
+            }
+            draw();
+        })
+
+        bThree.addEventListener("click",()=>{
+            if(bThree.innerHTML!=""){
+                return;
+            }
+            if(this.flag){
+            this.prsnt= (this.prsnt==="X") ? "O":"X";
+            document.getElementById("three").innerHTML=this.prsnt;
+            if(bOne.innerHTML===this.prsnt && bTwo.innerHTML===this.prsnt){
+                document.getElementById("win").innerHTML="WINNER IS --"+this.prsnt +"--PLEASE START AGAIN!!!";
+            }
+            else if(bFive.innerHTML===this.prsnt && bSeven.innerHTML===this.prsnt){
+                document.getElementById("win").innerHTML="WINNER IS --"+this.prsnt +"--PLEASE START AGAIN!!!";
+            }
+            else if(bSix.innerHTML===this.prsnt && bNine.innerHTML===this.prsnt){
+                document.getElementById("win").innerHTML="WINNER IS --"+this.prsnt +"--PLEASE START AGAIN!!!";
+             }
+            }
+            draw();
+        })
+
+        bFour.addEventListener("click",()=>{
+            if(bFour.innerHTML!=""){
+                return;
+            }
+            if(this.flag){
+            this.prsnt= (this.prsnt==="X") ? "O":"X";
+            document.getElementById("four").innerHTML=this.prsnt;
+            if(bOne.innerHTML===this.prsnt && bSeven.innerHTML===this.prsnt){
+                document.getElementById("win").innerHTML="WINNER IS --"+this.prsnt +"--PLEASE START AGAIN!!!";
+            }
+            else if(bFive.innerHTML===this.prsnt && bSix.innerHTML===this.prsnt){
+                document.getElementById("win").innerHTML="WINNER IS --"+this.prsnt +"--PLEASE START AGAIN!!!";
+            }
+            }
+            draw();
+        })
+
+        bFive.addEventListener("click",()=>{
+            if(bFive.innerHTML!=""){
+                return;
+            }
+            if(this.flag){
+            this.prsnt= (this.prsnt==="X") ? "O":"X";
+            document.getElementById("five").innerHTML=this.prsnt;
+             if(bOne.innerHTML===this.prsnt && bNine.innerHTML===this.prsnt){
+                document.getElementById("win").innerHTML="WINNER IS --"+this.prsnt +"--PLEASE START AGAIN!!!";
+            }
+            else if(bThree.innerHTML===this.prsnt && bSeven.innerHTML===this.prsnt){
+                document.getElementById("win").innerHTML="WINNER IS --"+this.prsnt +"--PLEASE START AGAIN!!!";
+            }
+            else if(bTwo.innerHTML===this.prsnt && bEight.innerHTML===this.prsnt){
+                document.getElementById("win").innerHTML="WINNER IS --"+this.prsnt +"--PLEASE START AGAIN!!!";
+            }
+            }
+            draw();
+        })
+
+        bSix.addEventListener("click",()=>{
+
+            if(bSix.innerHTML!=""){
+                return;
+            }
+            if(this.flag){
+            this.prsnt= (this.prsnt==="X") ? "O":"X";
+            document.getElementById("six").innerHTML=this.prsnt;
+             if(bFive.innerHTML===this.prsnt && bFour.innerHTML===this.prsnt){
+                document.getElementById("win").innerHTML="WINNER IS --"+this.prsnt +"--PLEASE START AGAIN!!!";
+            }
+            else if(bThree.innerHTML===this.prsnt && bNine.innerHTML===this.prsnt){
+                document.getElementById("win").innerHTML="WINNER IS --"+this.prsnt +"--PLEASE START AGAIN!!!";
+            }
+            }
+            draw();
+        })
+
+        bSeven.addEventListener("click",()=>{
+            if(bSeven.innerHTML!=""){
+                return;
+            }
+            if(this.flag){
+            this.prsnt= (this.prsnt==="X") ? "O":"X";
+            document.getElementById("seven").innerHTML=this.prsnt;
+             if(bOne.innerHTML===this.prsnt && bFour.innerHTML===this.prsnt){
+                document.getElementById("win").innerHTML="WINNER IS --"+this.prsnt +"--PLEASE START AGAIN!!!";
+            }
+            else if(bFive.innerHTML===this.prsnt && bThree.innerHTML===this.prsnt){
+                document.getElementById("win").innerHTML="WINNER IS --"+this.prsnt +"--PLEASE START AGAIN!!!";
+            }
+            else if(bEight.innerHTML===this.prsnt && bNine.innerHTML===this.prsnt){
+                document.getElementById("win").innerHTML="WINNER IS --"+this.prsnt +"--PLEASE START AGAIN!!!";
+            }
+            }
+            draw();
+        })
+
+        bEight.addEventListener("click",()=>{
+            if(bEight.innerHTML!=""){
+                return;
+            }
+            if(this.flag){
+            this.prsnt= (this.prsnt==="X") ? "O":"X";
+            document.getElementById("eight").innerHTML=this.prsnt;
+             if(bFive.innerHTML===this.prsnt && bTwo.innerHTML===this.prsnt){
+                document.getElementById("win").innerHTML="WINNER IS --"+this.prsnt +"--PLEASE START AGAIN!!!";
+            }
+            else if(bSeven.innerHTML===this.prsnt && bNine.innerHTML===this.prsnt){
+                document.getElementById("win").innerHTML="WINNER IS --"+this.prsnt +"--PLEASE START AGAIN!!!";
+            }
+            }
+            draw();
+        })
+
+        bNine.addEventListener("click",()=>{
+            if(bNine.innerHTML!=""){
+                return;
+            }
+            if(this.flag){
+            this.prsnt= (this.prsnt==="X") ? "O":"X";
+            document.getElementById("nine").innerHTML=this.prsnt;
+             if(bFive.innerHTML===this.prsnt && bOne.innerHTML===this.prsnt){
+                document.getElementById("win").innerHTML="WINNER IS --"+this.prsnt +"--PLEASE START AGAIN!!!";
+            }
+            else if(bSix.innerHTML===this.prsnt && bThree.innerHTML===this.prsnt){
+                document.getElementById("win").innerHTML="WINNER IS --"+this.prsnt +"--PLEASE START AGAIN!!!";
+            }
+            else if(bEight.innerHTML===this.prsnt && bSeven.innerHTML===this.prsnt){
+                document.getElementById("win").innerHTML="WINNER IS --"+this.prsnt +"--PLEASE START AGAIN!!!";
+            }
+            }
+            draw();
+        })
+    </script>
+</body>
+</html>
